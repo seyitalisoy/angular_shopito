@@ -1,8 +1,23 @@
 
 <table class="table">
+    <thead>
+        <tr>
+            <th>Ürün Id</th>
+            <th>Kategori Id</th>
+            <th>Ürün Adı</th>
+            <th>Birim Fiyatı</th>
+            <th>Stok Adedi</th>
+            <th>Fotoğraf</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
     <tr *ngFor="let product of products">
         <td>{{product.productId}}</td>        
+        <td>{{product.categoryId}}</td>        
         <td>{{product.productName}}</td>        
         <td>{{product.price}}</td>        
+        <td>{{product.unitsInStock}}</td>        
+        <td><img src="{{product.picture}}" width="100" height="100"></td>        
+        <td>{{product.description}}</td>                
     </tr>
 </table>

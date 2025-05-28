@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product';
+import { ProductResponseModel } from '../../models/productResponseModel';
+import { ProductService } from '../../services/product.service';
+
 
 @Component({
   selector: 'app-product',
@@ -7,22 +11,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
-  product1 = {
-    productId: 1,
-    productName: "Mouse",
-    price: 677
-  };
-  product2 = {
-    productId: 2,
-    productName: "Keyboard",
-    price: 562
-  };
-  product3 = {
-    productId: 3,
-    productName: "Phone",
-    price: 67800
-  };
+export class ProductComponent implements OnInit{
+    products : Product[] = [];        
+    
+  constructor(private productService : ProductService) {  }
 
-  products = [this.product1,this.product2,this.product3]
+  ngOnInit(): void {
+    this.productService.getProducts()
+    .subscribe((response)=>{
+        this.products = response.data;
+    });
+  }
+  
+
 }
