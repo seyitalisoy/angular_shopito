@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { VatAddedPipe } from '../../pipes/vat-added.pipe';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '../../pipes/filter.pipe';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -22,7 +23,7 @@ export class ProductComponent implements OnInit {
   filterText : string="";
 
   constructor(private productService: ProductService,
-    private activedRoute: ActivatedRoute) { }
+    private activedRoute: ActivatedRoute,private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     
@@ -61,6 +62,10 @@ export class ProductComponent implements OnInit {
       }
     });
   }
+
+  addToCart(product:Product){
+    this.toastrService.success("Sepete Eklendi",product.productName);
+  };
 
 
 }
