@@ -12,6 +12,7 @@
       <th>Kategori Id</th>
       <th>Ürün Adı</th>
       <th>Birim Fiyatı</th>
+      <th>KDV'li</th>
       <th>Stok Adedi</th>
       <th>Fotoğraf</th>
       <th>Açıklama</th>
@@ -21,8 +22,9 @@
     <tr *ngFor="let product of products">
       <td>{{product.productId}}</td>
       <td>{{product.categoryId}}</td>
-      <td>{{product.productName}}</td>
-      <td>{{product.price}}</td>
+      <td>{{product.productName |uppercase }}</td>
+      <td>{{product.price | currency }} </td>
+      <td>{{product.price | vatAdded:18 | currency }}</td>
       <td>{{product.unitsInStock}}</td>
       <td><img [src]="product.picture" width="100" height="100" /></td>
       <td>{{product.description}}</td>

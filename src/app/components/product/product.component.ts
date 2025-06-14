@@ -3,12 +3,13 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { VatAddedPipe } from '../../pipes/vat-added.pipe';
 
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  imports: [CommonModule],
+  imports: [CommonModule,VatAddedPipe],
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
