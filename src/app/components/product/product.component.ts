@@ -4,17 +4,22 @@ import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { VatAddedPipe } from '../../pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from '../../pipes/filter.pipe';
+
+
 
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  imports: [CommonModule,VatAddedPipe],
+  imports: [CommonModule,VatAddedPipe,FormsModule,FilterPipe],
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
   isLoading: boolean = true;
+  filterText : string="";
 
   constructor(private productService: ProductService,
     private activedRoute: ActivatedRoute) { }
