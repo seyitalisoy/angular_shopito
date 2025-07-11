@@ -5,10 +5,11 @@ import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart-summary',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './cart-summary.component.html',
   styleUrl: './cart-summary.component.css'
 })
